@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  osjs:
+  app:
     user: node
     build:
       context: .
@@ -18,3 +18,14 @@ services:
       - NODE_PID=${OSJS_NODE_PID:-osjs.pid}
       - NODE_USER=${OSJS_NODE_USER:-node}
       - NODE_GROUP=${OSJS_NODE_GROUP:-node}
+
+networks:
+  pronet:
+  devnet:
+    driver: bridge
+
+volumes:
+  appvol_base: { }
+  appvol_data: { }
+  dbvol_base: { }
+  dbvol_data: { }
